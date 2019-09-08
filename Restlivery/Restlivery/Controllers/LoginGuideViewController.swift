@@ -14,12 +14,12 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     let lgViewId = "lgViewId"
     var loginPages = [LoginPage]()
     
-    let pageCtrl: UIPageControl = {
+    lazy var pageCtrl: UIPageControl = {
         let pgCtrl = UIPageControl()
         pgCtrl.translatesAutoresizingMaskIntoConstraints = false
         pgCtrl.pageIndicatorTintColor = .lightGray
         pgCtrl.currentPageIndicatorTintColor = UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)
-        pgCtrl.numberOfPages = 4
+        pgCtrl.numberOfPages = loginPages.count + 1
         return pgCtrl
     }()
     
@@ -55,6 +55,10 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
         return cV
     }()
     
+    var pageCtrlBtmAcr: NSLayoutConstraint?
+    var skipBtnTpAcr: NSLayoutConstraint?
+    var nextBtnTpAcr: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPages()
@@ -62,7 +66,7 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func fetchPages() {
-        loginPages.append(LoginPage(image: #imageLiteral(resourceName: "three"), title: "Order straight from your phone.", text: "No hassle while ordering food. Every recipient's first delivery is on us."))
+        loginPages.append(LoginPage(image: #imageLiteral(resourceName: "four"), title: "Order straight from your phone.", text: "No hassle while ordering food. Every recipient's first delivery is on us."))
         loginPages.append(LoginPage(image: #imageLiteral(resourceName: "two"), title: "Order from your favorite restaurants.", text: "Search for nearby restaurants and tap to start an order."))
         loginPages.append(LoginPage(image: #imageLiteral(resourceName: "one"), title: "Get food delivered quickly.", text: "Fill out your information to complete your order and view your driver's progress during the entire process."))
         collectionView.reloadData()
@@ -83,16 +87,19 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
         
         pageCtrl.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         pageCtrl.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        pageCtrl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
+        pageCtrlBtmAcr = pageCtrl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+        pageCtrlBtmAcr?.isActive = true
         pageCtrl.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         skipBtn.leftAnchor.constraint(equalTo: guide.leftAnchor).isActive = true
-        skipBtn.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+        skipBtnTpAcr = skipBtn.topAnchor.constraint(equalTo: guide.topAnchor)
+        skipBtnTpAcr?.isActive = true
         skipBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
         skipBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
-        nextBtn.topAnchor.constraint(equalTo: skipBtn.topAnchor).isActive = true
         nextBtn.rightAnchor.constraint(equalTo: guide.rightAnchor).isActive = true
+        nextBtnTpAcr = nextBtn.topAnchor.constraint(equalTo: guide.topAnchor)
+        nextBtnTpAcr?.isActive = true
         nextBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nextBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
     }
@@ -130,5 +137,23 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     @objc func presentSearchVC() {
         let sWRevealController = SWRevealViewController(rearViewController: SideMenuViewController(), frontViewController: UINavigationController(rootViewController: SearchViewController()))!
         showDetailViewController(sWRevealController, sender: self)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
+        pageCtrl.currentPage = pageNumber
+        
+        if pageNumber == loginPages.count {
+            pageCtrlBtmAcr?.constant = 40
+            skipBtnTpAcr?.constant = -100
+            nextBtnTpAcr?.constant = -100
+        } else {
+            pageCtrlBtmAcr?.constant = -8
+            skipBtnTpAcr?.constant = 0
+            nextBtnTpAcr?.constant = 0
+        }
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }

@@ -31,11 +31,12 @@ class LoginViewCell: UICollectionViewCell {
     let lgAnView: LOTAnimationView = {
         let uiView = LOTAnimationView()
         uiView.translatesAutoresizingMaskIntoConstraints = false
-        uiView.setAnimation(named: "LoginAnimation")
+        uiView.setAnimation(named: "Order")
+        uiView.animationSpeed = 2
         uiView.loopAnimation = true
+        uiView.autoReverseAnimation = true
         uiView.play()
         uiView.contentMode = .scaleAspectFill
-        //uiView.clipsToBounds = true
         return uiView
     }()
     
