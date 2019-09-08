@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class LoginViewCell: UICollectionViewCell {
     
@@ -17,7 +18,7 @@ class LoginViewCell: UICollectionViewCell {
         return view
     }()
     
-    let appLbl: UILabel = {
+    let lgnLbl: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont(name: "AvenirNext-Bold", size: 64)
         lbl.textAlignment = .center
@@ -27,13 +28,15 @@ class LoginViewCell: UICollectionViewCell {
         return lbl
     }()
     
-    let appImgView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.image = #imageLiteral(resourceName: "blank_image")
-        imgView.contentMode = .scaleAspectFill
-        imgView.clipsToBounds = true
-        return imgView
+    let lgAnView: LOTAnimationView = {
+        let uiView = LOTAnimationView()
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        uiView.setAnimation(named: "LoginAnimation")
+        uiView.loopAnimation = true
+        uiView.play()
+        uiView.contentMode = .scaleAspectFill
+        //uiView.clipsToBounds = true
+        return uiView
     }()
     
     let lgnBtn: UIButton = {
@@ -76,8 +79,8 @@ class LoginViewCell: UICollectionViewCell {
         let guide = safeAreaLayoutGuide
         
         addSubview(bgView)
-        addSubview(appLbl)
-        addSubview(appImgView)
+        addSubview(lgnLbl)
+        addSubview(lgAnView)
         addSubview(lgnBtn)
         addSubview(switchCtrl)
         addSubview(accBtn)
@@ -87,13 +90,13 @@ class LoginViewCell: UICollectionViewCell {
         bgView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         bgView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        appLbl.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
-        appLbl.topAnchor.constraint(equalTo: guide.topAnchor, constant: 96).isActive = true
+        lgnLbl.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
+        lgnLbl.topAnchor.constraint(equalTo: guide.topAnchor, constant: 96).isActive = true
         
-        appImgView.heightAnchor.constraint(equalToConstant: 225).isActive = true
-        appImgView.leftAnchor.constraint(equalTo: guide.leftAnchor, constant: 32).isActive = true
-        appImgView.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: -32).isActive = true
-        appImgView.topAnchor.constraint(equalTo: appLbl.bottomAnchor, constant: 48).isActive = true
+        lgAnView.heightAnchor.constraint(equalToConstant: 308).isActive = true
+        lgAnView.widthAnchor.constraint(equalToConstant: 308).isActive = true
+        lgAnView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        lgAnView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         lgnBtn.leftAnchor.constraint(equalTo: guide.leftAnchor, constant: 32).isActive = true
         lgnBtn.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: -32).isActive = true

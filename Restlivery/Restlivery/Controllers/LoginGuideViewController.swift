@@ -102,12 +102,9 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if indexPath.item == loginPages.count {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lgViewId, for: indexPath) as! LoginViewCell
-            
             cell.lgnBtn.addTarget(self, action: #selector(self.presentSearchVC), for: .touchUpInside)
-            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lgGuideId, for: indexPath) as! LoginGuideCell
