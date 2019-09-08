@@ -8,12 +8,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewCell: UICollectionViewCell {
     
     let bgView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(red: 36/255, green: 33/255, blue: 62/255, alpha: 1.0)
+        view.backgroundColor = .white
         return view
     }()
     
@@ -41,47 +41,51 @@ class LoginViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         let titleAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.white]
         btn.setAttributedTitle(NSAttributedString(string: "Login with Facebook", attributes: titleAttribute), for: .normal)
-        btn.backgroundColor = UIColor(red: 78/255, green: 176/255, blue: 76/255, alpha: 1.0)
-        btn.addTarget(self, action: #selector(presentSearchVC), for: .touchUpInside)
+        btn.backgroundColor = UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)
         return btn
     }()
     
     let switchCtrl: UISegmentedControl = {
         let segCtrl = UISegmentedControl(items: ["Customer", "Driver"])
         segCtrl.translatesAutoresizingMaskIntoConstraints = false
-        segCtrl.tintColor = UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)
+        segCtrl.tintColor = UIColor(red: 78/255, green: 176/255, blue: 76/255, alpha: 1.0)
         return segCtrl
     }()
     
     let accBtn: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        let titleAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
+        let titleAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold), NSAttributedString.Key.foregroundColor: UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)]
         btn.setAttributedTitle(NSAttributedString(string: "USE A DIFFERENT ACCOUNT", attributes: titleAttribute), for: .normal)
         btn.backgroundColor = .clear
         return btn
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
         setupViews()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     func setupViews() {
-        let guide = view.safeAreaLayoutGuide
+        let guide = safeAreaLayoutGuide
         
-        view.addSubview(bgView)
-        view.addSubview(appLbl)
-        view.addSubview(appImgView)
-        view.addSubview(lgnBtn)
-        view.addSubview(switchCtrl)
-        view.addSubview(accBtn)
+        addSubview(bgView)
+        addSubview(appLbl)
+        addSubview(appImgView)
+        addSubview(lgnBtn)
+        addSubview(switchCtrl)
+        addSubview(accBtn)
 
-        bgView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        bgView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        bgView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        bgView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bgView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        bgView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        bgView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        bgView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         appLbl.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
         appLbl.topAnchor.constraint(equalTo: guide.topAnchor, constant: 96).isActive = true
@@ -105,10 +109,5 @@ class LoginViewController: UIViewController {
         accBtn.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: -32).isActive = true
         accBtn.heightAnchor.constraint(equalToConstant: 64).isActive = true
         accBtn.topAnchor.constraint(equalTo: lgnBtn.bottomAnchor, constant: 8).isActive = true
-    }
-    
-    @objc func presentSearchVC() {
-        let sWRevealController = SWRevealViewController(rearViewController: SideMenuViewController(), frontViewController: UINavigationController(rootViewController: SearchViewController()))!
-        showDetailViewController(sWRevealController, sender: self)
     }
 }

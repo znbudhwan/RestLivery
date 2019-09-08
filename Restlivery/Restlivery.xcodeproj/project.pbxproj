@@ -89,7 +89,6 @@
 		BFE52A5F23230A00000029C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BFE52A4E232309B6000029C0 /* LoginViewCell.swift */,
 				BFE52A6523230D96000029C0 /* SearchViewController.swift */,
 				BFE52A6723230DCE000029C0 /* SideMenuViewController.swift */,
 				BFE52A6E23231DF2000029C0 /* LoginGuideViewController.swift */,
@@ -118,6 +117,7 @@
 		BFE52A7323238E8A000029C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFE52A4E232309B6000029C0 /* LoginViewCell.swift */,
 				BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */,
 			);
 			path = Views;

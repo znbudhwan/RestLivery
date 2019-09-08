@@ -10,7 +10,8 @@ import UIKit
 
 class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "CellId"
+    let lgGuideId = "lgGuideId"
+    let lgViewId = "lgViewId"
     var loginPages = [LoginPage]()
     
     let pageCtrl: UIPageControl = {
@@ -18,7 +19,7 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
         pgCtrl.translatesAutoresizingMaskIntoConstraints = false
         pgCtrl.pageIndicatorTintColor = .lightGray
         pgCtrl.currentPageIndicatorTintColor = UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)
-        pgCtrl.numberOfPages = 3
+        pgCtrl.numberOfPages = 4
         return pgCtrl
     }()
     
@@ -49,7 +50,8 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
         cV.dataSource = self
         cV.delegate = self
         cV.isPagingEnabled = true
-        cV.register(LoginGuideCell.self, forCellWithReuseIdentifier: cellId)
+        cV.register(LoginGuideCell.self, forCellWithReuseIdentifier: lgGuideId)
+        cV.register(LoginViewCell.self, forCellWithReuseIdentifier: lgViewId)
         return cV
     }()
     
@@ -96,26 +98,40 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return loginPages.count
+        return loginPages.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LoginGuideCell
         
-        cell.loginImageView.image = loginPages[indexPath.item].pageImage
-        
-        let attributedTitle = NSMutableAttributedString(string: loginPages[indexPath.item].pageTitle!, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .medium), NSAttributedString.Key.foregroundColor: UIColor(white: 0.2, alpha: 1)])
-        let attributedText = NSAttributedString(string: "\n\n" + loginPages[indexPath.item].pageText!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(white: 0.2, alpha: 1)])
-        attributedTitle.append(attributedText)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        attributedTitle.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedTitle.string.count))
-        cell.loginTextView.attributedText = attributedTitle
+        if indexPath.item == loginPages.count {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lgViewId, for: indexPath) as! LoginViewCell
+            
+            cell.lgnBtn.addTarget(self, action: #selector(self.presentSearchVC), for: .touchUpInside)
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lgGuideId, for: indexPath) as! LoginGuideCell
+            
+            cell.loginImageView.image = loginPages[indexPath.item].pageImage
+            
+            let attributedTitle = NSMutableAttributedString(string: loginPages[indexPath.item].pageTitle!, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .medium), NSAttributedString.Key.foregroundColor: UIColor(white: 0.2, alpha: 1)])
+            let attributedText = NSAttributedString(string: "\n\n" + loginPages[indexPath.item].pageText!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor(white: 0.2, alpha: 1)])
+            attributedTitle.append(attributedText)
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            attributedTitle.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedTitle.string.count))
+            cell.loginTextView.attributedText = attributedTitle
 
-        return cell
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
+    }
+    
+    @objc func presentSearchVC() {
+        let sWRevealController = SWRevealViewController(rearViewController: SideMenuViewController(), frontViewController: UINavigationController(rootViewController: SearchViewController()))!
+        showDetailViewController(sWRevealController, sender: self)
     }
 }
