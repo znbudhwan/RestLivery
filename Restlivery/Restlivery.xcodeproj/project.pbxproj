@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4C232309B6000029C0 /* AppDelegate.swift */; };
-		BFE52A4F232309B6000029C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4E232309B6000029C0 /* LoginViewController.swift */; };
+		BFE52A4F232309B6000029C0 /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4E232309B6000029C0 /* LoginViewCell.swift */; };
 		BFE52A54232309B8000029C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A53232309B8000029C0 /* Assets.xcassets */; };
 		BFE52A57232309B8000029C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A55232309B8000029C0 /* LaunchScreen.storyboard */; };
 		BFE52A6323230A23000029C0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A6223230A23000029C0 /* SWRevealViewController.m */; };
 		BFE52A6623230D96000029C0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A6523230D96000029C0 /* SearchViewController.swift */; };
 		BFE52A6823230DCE000029C0 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A6723230DCE000029C0 /* SideMenuViewController.swift */; };
+		BFE52A6F23231DF2000029C0 /* LoginGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A6E23231DF2000029C0 /* LoginGuideViewController.swift */; };
+		BFE52A7223233173000029C0 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A7123233173000029C0 /* LoginPage.swift */; };
+		BFE52A7523238E9B000029C0 /* LoginGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BFE52A49232309B6000029C0 /* Restlivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restlivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE52A4C232309B6000029C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BFE52A4E232309B6000029C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BFE52A4E232309B6000029C0 /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
 		BFE52A53232309B8000029C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFE52A56232309B8000029C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFE52A58232309B8000029C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,6 +31,9 @@
 		BFE52A6423230A3C000029C0 /* SW-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SW-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFE52A6523230D96000029C0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BFE52A6723230DCE000029C0 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		BFE52A6E23231DF2000029C0 /* LoginGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuideViewController.swift; sourceTree = "<group>"; };
+		BFE52A7123233173000029C0 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuideCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,8 @@
 		BFE52A4B232309B6000029C0 /* Restlivery */ = {
 			isa = PBXGroup;
 			children = (
+				BFE52A7323238E8A000029C0 /* Views */,
+				BFE52A7023233162000029C0 /* Models */,
 				BFE52A6023230A23000029C0 /* SWRevealViewController */,
 				BFE52A5E232309F6000029C0 /* Supporting Files */,
 				BFE52A5F23230A00000029C0 /* Controllers */,
@@ -81,9 +89,10 @@
 		BFE52A5F23230A00000029C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BFE52A4E232309B6000029C0 /* LoginViewController.swift */,
+				BFE52A4E232309B6000029C0 /* LoginViewCell.swift */,
 				BFE52A6523230D96000029C0 /* SearchViewController.swift */,
 				BFE52A6723230DCE000029C0 /* SideMenuViewController.swift */,
+				BFE52A6E23231DF2000029C0 /* LoginGuideViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -96,6 +105,22 @@
 				BFE52A6423230A3C000029C0 /* SW-Bridging-Header.h */,
 			);
 			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		BFE52A7023233162000029C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFE52A7123233173000029C0 /* LoginPage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFE52A7323238E8A000029C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,10 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFE52A4F232309B6000029C0 /* LoginViewController.swift in Sources */,
+				BFE52A4F232309B6000029C0 /* LoginViewCell.swift in Sources */,
+				BFE52A7223233173000029C0 /* LoginPage.swift in Sources */,
 				BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */,
 				BFE52A6623230D96000029C0 /* SearchViewController.swift in Sources */,
+				BFE52A6F23231DF2000029C0 /* LoginGuideViewController.swift in Sources */,
 				BFE52A6823230DCE000029C0 /* SideMenuViewController.swift in Sources */,
+				BFE52A7523238E9B000029C0 /* LoginGuideCell.swift in Sources */,
 				BFE52A6323230A23000029C0 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

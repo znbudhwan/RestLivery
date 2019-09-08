@@ -10,11 +10,22 @@ import UIKit
 
 class SideMenuCell: UITableViewCell {
     
-    var menuIcon = UIImageView()
-    var menuLabel = UILabel()
+    let menuIcon: UIImageView = {
+        let iV = UIImageView()
+        iV.translatesAutoresizingMaskIntoConstraints = false
+        return iV
+    }()
+    
+    let menuLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.textColor = .lightGray
+        return lbl
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor(red: 36/255, green: 33/255, blue: 62/255, alpha: 1.0)
         setupViews()
     }
     
@@ -23,25 +34,17 @@ class SideMenuCell: UITableViewCell {
     }
     
     func setupViews() {
-        backgroundColor = UIColor(red: 36/255, green: 33/255, blue: 62/255, alpha: 1.0)
-        
-        menuIcon.translatesAutoresizingMaskIntoConstraints = false
-        
         addSubview(menuIcon)
+        addSubview(menuLabel)
+        
         menuIcon.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         menuIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         menuIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
         menuIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
         
-        menuLabel.textColor = .lightGray
-        menuLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(menuLabel)
         menuLabel.leftAnchor.constraint(equalTo: menuIcon.rightAnchor, constant: 12).isActive = true
         menuLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
-    
-    
 }
 
 class SideMenuViewController: UITableViewController {
