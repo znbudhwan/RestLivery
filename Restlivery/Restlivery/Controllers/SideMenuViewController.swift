@@ -8,52 +8,13 @@
 
 import UIKit
 
-class SideMenuCell: UITableViewCell {
-    
-    let menuIcon: UIImageView = {
-        let iV = UIImageView()
-        iV.translatesAutoresizingMaskIntoConstraints = false
-        return iV
-    }()
-    
-    let menuLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.textColor = .lightGray
-        return lbl
-    }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor(red: 36/255, green: 33/255, blue: 62/255, alpha: 1.0)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
-        addSubview(menuIcon)
-        addSubview(menuLabel)
-        
-        menuIcon.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        menuIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        menuIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        menuIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        menuLabel.leftAnchor.constraint(equalTo: menuIcon.rightAnchor, constant: 12).isActive = true
-        menuLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    }
-}
-
 class SideMenuViewController: UITableViewController {
     
     var cells = [(UIImage, String)]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor(red: 36/255, green: 33/255, blue: 62/255, alpha: 1.0)
+        tableView.backgroundColor = .white
         
         cells.append((#imageLiteral(resourceName: "icon_restaurants"), "Restaurants"))
         cells.append((#imageLiteral(resourceName: "icon_tray"), "Tray"))
@@ -89,7 +50,7 @@ class SideMenuViewController: UITableViewController {
         
         let headerLabel = UILabel()
         headerLabel.text = "Placeholder Name"
-        headerLabel.textColor = .lightGray
+        headerLabel.textColor = UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         headerView.addSubview(headerLabel)
@@ -100,7 +61,6 @@ class SideMenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //revealViewController()
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

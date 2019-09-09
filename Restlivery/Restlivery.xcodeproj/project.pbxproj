@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83E4E57E14DD33B5EA485325 /* Pods_Restlivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36EDCA7C5E2C5402B869492 /* Pods_Restlivery.framework */; };
+		BF84318A2326DD5E007503AA /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8431892326DD5E007503AA /* SideMenuCell.swift */; };
 		BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4C232309B6000029C0 /* AppDelegate.swift */; };
 		BFE52A4F232309B6000029C0 /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4E232309B6000029C0 /* LoginViewCell.swift */; };
 		BFE52A54232309B8000029C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A53232309B8000029C0 /* Assets.xcassets */; };
@@ -21,10 +22,12 @@
 		BFE52A772324A8FC000029C0 /* LoginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A762324A8FC000029C0 /* LoginAnimation.json */; };
 		BFE52A792324C9E8000029C0 /* Order.json in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A782324C9E8000029C0 /* Order.json */; };
 		BFE52A7B2325DB16000029C0 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */; };
+		BFE52A7D2325E76E000029C0 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A7C2325E76D000029C0 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0BB2C1A2C26BF39D779B2BDD /* Pods-Restlivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restlivery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Restlivery/Pods-Restlivery.debug.xcconfig"; sourceTree = "<group>"; };
+		BF8431892326DD5E007503AA /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		BFE52A49232309B6000029C0 /* Restlivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restlivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE52A4C232309B6000029C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFE52A4E232309B6000029C0 /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		BFE52A762324A8FC000029C0 /* LoginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoginAnimation.json; path = ../../../../../../Desktop/LoginAnimation.json; sourceTree = "<group>"; };
 		BFE52A782324C9E8000029C0 /* Order.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Order.json; path = ../../../../../../Desktop/Order.json; sourceTree = "<group>"; };
 		BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		BFE52A7C2325E76D000029C0 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C36EDCA7C5E2C5402B869492 /* Pods_Restlivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restlivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A83DE6379EAC50A2DCC03B /* Pods-Restlivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restlivery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Restlivery/Pods-Restlivery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +156,8 @@
 			children = (
 				BFE52A4E232309B6000029C0 /* LoginViewCell.swift */,
 				BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */,
+				BFE52A7C2325E76D000029C0 /* SearchResultCell.swift */,
+				BF8431892326DD5E007503AA /* SideMenuCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +287,8 @@
 				BFE52A7223233173000029C0 /* LoginPage.swift in Sources */,
 				BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */,
 				BFE52A6623230D96000029C0 /* SearchViewController.swift in Sources */,
+				BF84318A2326DD5E007503AA /* SideMenuCell.swift in Sources */,
+				BFE52A7D2325E76E000029C0 /* SearchResultCell.swift in Sources */,
 				BFE52A6F23231DF2000029C0 /* LoginGuideViewController.swift in Sources */,
 				BFE52A6823230DCE000029C0 /* SideMenuViewController.swift in Sources */,
 				BFE52A7523238E9B000029C0 /* LoginGuideCell.swift in Sources */,
