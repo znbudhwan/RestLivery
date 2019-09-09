@@ -20,6 +20,7 @@
 		BFE52A7523238E9B000029C0 /* LoginGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */; };
 		BFE52A772324A8FC000029C0 /* LoginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A762324A8FC000029C0 /* LoginAnimation.json */; };
 		BFE52A792324C9E8000029C0 /* Order.json in Resources */ = {isa = PBXBuildFile; fileRef = BFE52A782324C9E8000029C0 /* Order.json */; };
+		BFE52A7B2325DB16000029C0 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BFE52A7423238E9B000029C0 /* LoginGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuideCell.swift; sourceTree = "<group>"; };
 		BFE52A762324A8FC000029C0 /* LoginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoginAnimation.json; path = ../../../../../../Desktop/LoginAnimation.json; sourceTree = "<group>"; };
 		BFE52A782324C9E8000029C0 /* Order.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Order.json; path = ../../../../../../Desktop/Order.json; sourceTree = "<group>"; };
+		BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		C36EDCA7C5E2C5402B869492 /* Pods_Restlivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restlivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A83DE6379EAC50A2DCC03B /* Pods-Restlivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restlivery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Restlivery/Pods-Restlivery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				BFE52A6523230D96000029C0 /* SearchViewController.swift */,
 				BFE52A6723230DCE000029C0 /* SideMenuViewController.swift */,
 				BFE52A6E23231DF2000029C0 /* LoginGuideViewController.swift */,
+				BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				BFE52A6F23231DF2000029C0 /* LoginGuideViewController.swift in Sources */,
 				BFE52A6823230DCE000029C0 /* SideMenuViewController.swift in Sources */,
 				BFE52A7523238E9B000029C0 /* LoginGuideCell.swift in Sources */,
+				BFE52A7B2325DB16000029C0 /* LaunchScreenViewController.swift in Sources */,
 				BFE52A6323230A23000029C0 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

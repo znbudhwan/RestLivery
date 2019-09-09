@@ -26,6 +26,7 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     let skipBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(skipToLogin), for: .touchUpInside)
         let attributedText = NSAttributedString(string: "Skip", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22), NSAttributedString.Key.foregroundColor: UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)])
         btn.setAttributedTitle(attributedText, for: .normal)
         return btn
@@ -34,8 +35,8 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     let nextBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(goToNextPage), for: .touchUpInside)
         let attributedText = NSAttributedString(string: "Next", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22), NSAttributedString.Key.foregroundColor: UIColor(red: 232/255, green: 63/255, blue: 111/255, alpha: 1.0)])
-        
         btn.setAttributedTitle(attributedText, for: .normal)
         return btn
     }()
@@ -139,21 +140,55 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
         showDetailViewController(sWRevealController, sender: self)
     }
     
+    func pushConstraintsOffScreen() {
+        pageCtrlBtmAcr?.constant = 40
+        skipBtnTpAcr?.constant = -100
+        nextBtnTpAcr?.constant = -100
+            
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func pullConstraintsOnScreen() {
+        pageCtrlBtmAcr?.constant = -8
+        skipBtnTpAcr?.constant = 0
+        nextBtnTpAcr?.constant = 0
+    
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
         pageCtrl.currentPage = pageNumber
         
         if pageNumber == loginPages.count {
-            pageCtrlBtmAcr?.constant = 40
-            skipBtnTpAcr?.constant = -100
-            nextBtnTpAcr?.constant = -100
+            pushConstraintsOffScreen()
         } else {
-            pageCtrlBtmAcr?.constant = -8
-            skipBtnTpAcr?.constant = 0
-            nextBtnTpAcr?.constant = 0
+            pullConstraintsOnScreen()
         }
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+    }
+    
+    @objc func skipToLogin() {
+        if pageCtrl.currentPage == loginPages.count {
+            return
+        } else {
+            let indexPath = IndexPath(item: loginPages.count, section: 0)
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+            pushConstraintsOffScreen()
+        }
+    }
+    
+    @objc func goToNextPage() {
+        if pageCtrl.currentPage < loginPages.count {
+            if pageCtrl.currentPage == loginPages.count - 1 {
+                pushConstraintsOffScreen()
+            }
+            let indexPath = IndexPath(item: pageCtrl.currentPage + 1, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            pageCtrl.currentPage += 1
+        }
     }
 }
