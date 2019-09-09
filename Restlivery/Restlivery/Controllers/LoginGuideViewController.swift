@@ -172,13 +172,8 @@ class LoginGuideViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     @objc func skipToLogin() {
-        if pageCtrl.currentPage == loginPages.count {
-            return
-        } else {
-            let indexPath = IndexPath(item: loginPages.count, section: 0)
-            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-            pushConstraintsOffScreen()
-        }
+        pageCtrl.currentPage = loginPages.count - 1
+        goToNextPage()
     }
     
     @objc func goToNextPage() {
