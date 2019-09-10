@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restlivery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbH-Nh-2Lg">
-                                <rect key="frame" x="16" y="204" width="382" height="60"/>
+                                <rect key="frame" x="16" y="204" width="382" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="7hp-2D-QaB"/>
+                                    <constraint firstAttribute="height" constant="84" id="7hp-2D-QaB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="64"/>
                                 <color key="textColor" red="0.90980392156862744" green="0.24705882352941178" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>

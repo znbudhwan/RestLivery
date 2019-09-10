@@ -22,7 +22,7 @@ class SearchResultCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.text = "Restaurant's Name"
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        lbl.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return lbl
     }()
     
@@ -30,7 +30,7 @@ class SearchResultCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.text = "Restaurant's address will be placed here"
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFont(ofSize: 13, weight: .light)
+        lbl.font = UIFont.systemFont(ofSize: 15, weight: .light)
         lbl.textColor = .darkGray
         return lbl
     }()
@@ -60,9 +60,9 @@ class SearchResultCell: UICollectionViewCell {
         resImg.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         resImg.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         resImg.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        resImg.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
+        resImg.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.68).isActive = true
         
-        resNameLbl.topAnchor.constraint(equalTo: resImg.bottomAnchor, constant: 8).isActive = true
+        resNameLbl.topAnchor.constraint(equalTo: resImg.bottomAnchor, constant: 16).isActive = true
         resNameLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         
         resAddrLbl.topAnchor.constraint(equalTo: resNameLbl.bottomAnchor, constant: 8).isActive = true

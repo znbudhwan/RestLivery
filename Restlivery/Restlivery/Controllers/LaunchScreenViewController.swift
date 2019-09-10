@@ -46,7 +46,7 @@ class LaunchScreenViewController: UIViewController {
         lsLbl.leftAnchor.constraint(equalTo: guide.leftAnchor, constant: 16).isActive = true
         lsLbl.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: -16).isActive = true
         lsLbl.topAnchor.constraint(equalTo: guide.topAnchor, constant: 160).isActive = true
-        lsLbl.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        lsLbl.heightAnchor.constraint(equalToConstant: 84).isActive = true
         
         lsAnView.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
         lsAnView.centerYAnchor.constraint(equalTo: guide.centerYAnchor).isActive = true
