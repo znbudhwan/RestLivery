@@ -10,6 +10,7 @@
 		83E4E57E14DD33B5EA485325 /* Pods_Restlivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36EDCA7C5E2C5402B869492 /* Pods_Restlivery.framework */; };
 		BF77D5DC2327085D001528E4 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5DB2327085D001528E4 /* MealViewCell.swift */; };
 		BF77D5DE23270F51001528E4 /* MealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5DD23270F51001528E4 /* MealHeaderView.swift */; };
+		BF77D5E023278B0A001528E4 /* OrderMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5DF23278B0A001528E4 /* OrderMealViewController.swift */; };
 		BF84318A2326DD5E007503AA /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8431892326DD5E007503AA /* SideMenuCell.swift */; };
 		BF84318C2326E6C2007503AA /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84318B2326E6C2007503AA /* MealsViewController.swift */; };
 		BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4C232309B6000029C0 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		0BB2C1A2C26BF39D779B2BDD /* Pods-Restlivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restlivery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Restlivery/Pods-Restlivery.debug.xcconfig"; sourceTree = "<group>"; };
 		BF77D5DB2327085D001528E4 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
 		BF77D5DD23270F51001528E4 /* MealHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHeaderView.swift; sourceTree = "<group>"; };
+		BF77D5DF23278B0A001528E4 /* OrderMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMealViewController.swift; sourceTree = "<group>"; };
 		BF8431892326DD5E007503AA /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		BF84318B2326E6C2007503AA /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
 		BFE52A49232309B6000029C0 /* Restlivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restlivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				BFE52A6E23231DF2000029C0 /* LoginGuideViewController.swift */,
 				BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */,
 				BF84318B2326E6C2007503AA /* MealsViewController.swift */,
+				BF77D5DF23278B0A001528E4 /* OrderMealViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				BFE52A4F232309B6000029C0 /* LoginViewCell.swift in Sources */,
 				BF84318C2326E6C2007503AA /* MealsViewController.swift in Sources */,
 				BFE52A7223233173000029C0 /* LoginPage.swift in Sources */,
+				BF77D5E023278B0A001528E4 /* OrderMealViewController.swift in Sources */,
 				BF77D5DC2327085D001528E4 /* MealViewCell.swift in Sources */,
 				BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */,
 				BFE52A6623230D96000029C0 /* SearchViewController.swift in Sources */,

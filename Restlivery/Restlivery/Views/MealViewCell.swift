@@ -25,7 +25,7 @@ class MealViewCell: UICollectionViewCell {
         lbl.font = UIFont.systemFont(ofSize: 17)
         lbl.textColor = .darkGray
         lbl.textAlignment = .left
-        lbl.numberOfLines = 4
+        lbl.numberOfLines = 2
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -73,7 +73,7 @@ class MealViewCell: UICollectionViewCell {
         
         mealImg.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         mealImg.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        mealImg.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        mealImg.heightAnchor.constraint(equalToConstant: 124).isActive = true
         mealImg.widthAnchor.constraint(equalToConstant: 124).isActive = true
         
         mealNameLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
@@ -83,7 +83,7 @@ class MealViewCell: UICollectionViewCell {
         shortDescLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         shortDescLbl.topAnchor.constraint(equalTo: mealNameLbl.bottomAnchor, constant: 16).isActive = true
         shortDescLbl.rightAnchor.constraint(equalTo: mealImg.leftAnchor, constant: -16).isActive = true
-        shortDescLbl.heightAnchor.constraint(equalToConstant: 84).isActive = true
+        shortDescLbl.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         priceLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         priceLbl.topAnchor.constraint(equalTo: shortDescLbl.bottomAnchor, constant: 16).isActive = true
@@ -91,7 +91,7 @@ class MealViewCell: UICollectionViewCell {
         
         dvdView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         dvdView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        dvdView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2.5).isActive = true
+        dvdView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         dvdView.heightAnchor.constraint(equalToConstant: 2.5).isActive = true
     }
 }
