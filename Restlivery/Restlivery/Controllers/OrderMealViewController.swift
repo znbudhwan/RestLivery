@@ -58,6 +58,58 @@ class OrderMealViewController: UIViewController {
         return lbl
     }()
     
+    let quantLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "999"
+        lbl.textAlignment = .center
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        return lbl
+    }()
+    
+    lazy var orderQuantView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 27
+        view.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
+        view.layer.borderWidth = 2.0
+        
+        let minusAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold)]
+        let addAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)]
+        
+        let minusBtn = UIButton(type: .custom)
+        minusBtn.translatesAutoresizingMaskIntoConstraints = false
+        minusBtn.setAttributedTitle(NSAttributedString(string: "—", attributes: minusAttribute), for: .normal)
+        minusBtn.addTarget(self, action: #selector(decreaseFromQuantity), for: .touchUpInside)
+        
+        let addBtn = UIButton(type: .custom)
+        addBtn.translatesAutoresizingMaskIntoConstraints = false
+        addBtn.setAttributedTitle(NSAttributedString(string: "＋", attributes: addAttribute), for: .normal)
+        addBtn.addTarget(self, action: #selector(addToQuantity), for: .touchUpInside)
+        
+        view.addSubview(minusBtn)
+        view.addSubview(quantLbl)
+        view.addSubview(addBtn)
+        
+        minusBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8).isActive = true
+        minusBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        minusBtn.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        minusBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        quantLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        quantLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        quantLbl.widthAnchor.constraint(equalToConstant: 50).isActive = true
+
+        addBtn.leftAnchor.constraint(equalTo: quantLbl.rightAnchor, constant: 16).isActive = true
+        addBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
+        addBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        addBtn.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        addBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        return view
+    }()
+    
     let orderView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +141,7 @@ class OrderMealViewController: UIViewController {
         view.addSubview(orderDvLbl)
         view.addSubview(orderSDLbl)
         view.addSubview(orderPriceLbl)
+        view.addSubview(orderQuantView)
         view.addSubview(orderView)
         
         orderImg.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -102,17 +155,34 @@ class OrderMealViewController: UIViewController {
         orderDvLbl.topAnchor.constraint(equalTo: orderMealLbl.bottomAnchor, constant: 6).isActive = true
         orderDvLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        orderSDLbl.topAnchor.constraint(equalTo: orderDvLbl.bottomAnchor, constant: 16).isActive = true
+        orderSDLbl.topAnchor.constraint(equalTo: orderDvLbl.bottomAnchor, constant: 24).isActive = true
         orderSDLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 48).isActive = true
         orderSDLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -48).isActive = true
         orderSDLbl.heightAnchor.constraint(equalToConstant: 82).isActive = true
         
-        orderPriceLbl.topAnchor.constraint(equalTo: orderSDLbl.bottomAnchor, constant: 16).isActive = true
+        orderPriceLbl.topAnchor.constraint(equalTo: orderSDLbl.bottomAnchor, constant: 24).isActive = true
         orderPriceLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        orderQuantView.topAnchor.constraint(equalTo: orderPriceLbl.bottomAnchor, constant: 24).isActive = true
+        orderQuantView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        orderQuantView.widthAnchor.constraint(equalToConstant: 164).isActive = true
+        orderQuantView.heightAnchor.constraint(equalToConstant: 54).isActive = true
         
         orderView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         orderView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         orderView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         orderView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    }
+    
+    @objc func addToQuantity() {
+        let value = quantLbl.text!
+        if value == "999" { return }
+        quantLbl.text = String(Int(value)! + 1)
+    }
+    
+    @objc func decreaseFromQuantity() {
+        let value = quantLbl.text!
+        if value == "0" { return }
+        quantLbl.text = String(Int(value)! - 1)
     }
 }
