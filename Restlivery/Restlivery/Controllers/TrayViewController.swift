@@ -13,6 +13,39 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let trayId = "trayId"
     
+    let placeholderView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        
+        let placeholderImgView = UIImageView(image:  #imageLiteral(resourceName: "icon_delivery"))
+        placeholderImgView.translatesAutoresizingMaskIntoConstraints = false
+        placeholderImgView.contentMode = .scaleAspectFill
+        placeholderImgView.clipsToBounds = true
+        
+        let placeholderLbl = UILabel()
+        placeholderLbl.translatesAutoresizingMaskIntoConstraints = false
+        placeholderLbl.text = "Your tray is empty! Add orders from your favorite restaurants!"
+        placeholderLbl.numberOfLines = 2
+        placeholderLbl.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        placeholderLbl.textColor = .darkGray
+        
+        view.addSubview(placeholderImgView)
+        view.addSubview(placeholderLbl)
+        
+        placeholderImgView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        placeholderImgView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        placeholderImgView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        placeholderImgView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        placeholderLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        placeholderLbl.topAnchor.constraint(equalTo: placeholderImgView.bottomAnchor, constant: 16).isActive = true
+        placeholderLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
+        placeholderLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32).isActive = true
+        
+        return view
+    }()
+    
     lazy var orderTblView: UITableView = {
         let tblView = UITableView(frame: .zero, style: .plain)
         tblView.backgroundColor = .white
@@ -141,6 +174,13 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
         return view
     }()
     
+    var arr: [Int] = [1] { // CHANGE TO ORDER OBJECT
+        didSet {
+            self.orderTblView.reloadData()
+            updateList()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -155,6 +195,7 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addGestureRecognizer((revealViewController()?.panGestureRecognizer())!)
         
         view.addSubview(orderTblView)
+        view.addSubview(placeholderView)
         view.addSubview(orderTtlDvd)
         view.addSubview(orderTtlLbl)
         view.addSubview(ttlLbl)
@@ -167,7 +208,12 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
         orderTblView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         orderTblView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         orderTblView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        orderTblView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.50).isActive = true
+        orderTblView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        
+        placeholderView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        placeholderView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        placeholderView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        placeholderView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         
         orderTtlDvd.topAnchor.constraint(equalTo: orderTblView.bottomAnchor).isActive = true
         orderTtlDvd.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -205,7 +251,8 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        updateList()
+        return arr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -228,5 +275,15 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
         headerLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
         
         return headerView
+    }
+    
+    func updateList() {
+        if arr.count == 0 {
+            orderTblView.isHidden = true
+            placeholderView.isHidden = false
+        } else {
+            orderTblView.isHidden = false
+            placeholderView.isHidden = true
+        }
     }
 }

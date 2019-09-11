@@ -37,7 +37,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         let placeholderLbl = UILabel()
         placeholderLbl.translatesAutoresizingMaskIntoConstraints = false
         placeholderLbl.text = "Search for your favorite restaurants!"
-        placeholderLbl.isUserInteractionEnabled = true
         placeholderLbl.font = UIFont.systemFont(ofSize: 16, weight: .light)
         placeholderLbl.textColor = .darkGray
         
