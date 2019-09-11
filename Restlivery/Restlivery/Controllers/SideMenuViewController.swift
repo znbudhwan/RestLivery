@@ -61,6 +61,11 @@ class SideMenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            revealViewController()?.pushFrontViewController(UINavigationController(rootViewController: SearchViewController()), animated: true)
+        } else if indexPath.row == 1 {
+            revealViewController()?.pushFrontViewController(UINavigationController(rootViewController: TrayViewController()), animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -11,6 +11,8 @@
 		BF77D5DC2327085D001528E4 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5DB2327085D001528E4 /* MealViewCell.swift */; };
 		BF77D5DE23270F51001528E4 /* MealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5DD23270F51001528E4 /* MealHeaderView.swift */; };
 		BF77D5E023278B0A001528E4 /* OrderMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5DF23278B0A001528E4 /* OrderMealViewController.swift */; };
+		BF77D5E22328C403001528E4 /* TrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5E12328C403001528E4 /* TrayViewController.swift */; };
+		BF77D5E423299087001528E4 /* TrayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D5E323299087001528E4 /* TrayViewCell.swift */; };
 		BF84318A2326DD5E007503AA /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8431892326DD5E007503AA /* SideMenuCell.swift */; };
 		BF84318C2326E6C2007503AA /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84318B2326E6C2007503AA /* MealsViewController.swift */; };
 		BFE52A4D232309B6000029C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE52A4C232309B6000029C0 /* AppDelegate.swift */; };
@@ -34,6 +36,8 @@
 		BF77D5DB2327085D001528E4 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
 		BF77D5DD23270F51001528E4 /* MealHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHeaderView.swift; sourceTree = "<group>"; };
 		BF77D5DF23278B0A001528E4 /* OrderMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMealViewController.swift; sourceTree = "<group>"; };
+		BF77D5E12328C403001528E4 /* TrayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayViewController.swift; sourceTree = "<group>"; };
+		BF77D5E323299087001528E4 /* TrayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayViewCell.swift; sourceTree = "<group>"; };
 		BF8431892326DD5E007503AA /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		BF84318B2326E6C2007503AA /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
 		BFE52A49232309B6000029C0 /* Restlivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restlivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,7 @@
 				BFE52A7A2325DB16000029C0 /* LaunchScreenViewController.swift */,
 				BF84318B2326E6C2007503AA /* MealsViewController.swift */,
 				BF77D5DF23278B0A001528E4 /* OrderMealViewController.swift */,
+				BF77D5E12328C403001528E4 /* TrayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				BF8431892326DD5E007503AA /* SideMenuCell.swift */,
 				BF77D5DB2327085D001528E4 /* MealViewCell.swift */,
 				BF77D5DD23270F51001528E4 /* MealHeaderView.swift */,
+				BF77D5E323299087001528E4 /* TrayViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			files = (
 				BFE52A4F232309B6000029C0 /* LoginViewCell.swift in Sources */,
 				BF84318C2326E6C2007503AA /* MealsViewController.swift in Sources */,
+				BF77D5E22328C403001528E4 /* TrayViewController.swift in Sources */,
 				BFE52A7223233173000029C0 /* LoginPage.swift in Sources */,
 				BF77D5E023278B0A001528E4 /* OrderMealViewController.swift in Sources */,
 				BF77D5DC2327085D001528E4 /* MealViewCell.swift in Sources */,
@@ -306,6 +313,7 @@
 				BF77D5DE23270F51001528E4 /* MealHeaderView.swift in Sources */,
 				BFE52A7D2325E76E000029C0 /* SearchResultCell.swift in Sources */,
 				BFE52A6F23231DF2000029C0 /* LoginGuideViewController.swift in Sources */,
+				BF77D5E423299087001528E4 /* TrayViewCell.swift in Sources */,
 				BFE52A6823230DCE000029C0 /* SideMenuViewController.swift in Sources */,
 				BFE52A7523238E9B000029C0 /* LoginGuideCell.swift in Sources */,
 				BFE52A7B2325DB16000029C0 /* LaunchScreenViewController.swift in Sources */,

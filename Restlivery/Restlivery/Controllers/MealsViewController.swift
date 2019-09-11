@@ -15,6 +15,12 @@ class MealsViewController: UICollectionViewController, UICollectionViewDelegateF
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let rightBarBtnItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_tray"), style: .plain, target: self, action: #selector(showTrayVC))
+        rightBarBtnItem.tintColor = view.tintColor
+        navigationItem.rightBarButtonItem = rightBarBtnItem
+        rightBarBtnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -26)
+
         collectionView.register(MealViewCell.self, forCellWithReuseIdentifier: mealId)
         collectionView.register(MealHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: mealHeaderId)
         setupViews()
@@ -53,6 +59,10 @@ class MealsViewController: UICollectionViewController, UICollectionViewDelegateF
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         show(OrderMealViewController(), sender: self)
+    }
+    
+    @objc func showTrayVC() {
+        show(TrayViewController(), sender: self)
     }
     
 }

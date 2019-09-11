@@ -151,6 +151,12 @@ class OrderMealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        let rightBarBtnItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_tray"), style: .plain, target: self, action: #selector(showTrayVC))
+        rightBarBtnItem.tintColor = view.tintColor
+        navigationItem.rightBarButtonItem = rightBarBtnItem
+        rightBarBtnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -26)
+
         setupViews()
     }
     
@@ -211,7 +217,7 @@ class OrderMealViewController: UIViewController {
     
     @objc func decreaseFromQuantity() {
         let value = quantLbl.text!
-        if value == "999" { return }
+        if value == "0" { return }
         let newQuant = Int(value)! - 1
         quantLbl.text = String(newQuant)
         
@@ -222,5 +228,9 @@ class OrderMealViewController: UIViewController {
             let amount = Double(truncating: number.decimalValue as NSNumber) * Double(newQuant)
             subtotalLbl.text = String(format: "$%.02f", amount)
         }
+    }
+    
+    @objc func showTrayVC() {
+        show(TrayViewController(), sender: self)
     }
 }
