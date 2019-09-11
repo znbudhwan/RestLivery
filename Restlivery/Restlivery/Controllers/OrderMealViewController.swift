@@ -51,7 +51,7 @@ class OrderMealViewController: UIViewController {
     let orderPriceLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "$99.99"
+        lbl.text = "$10.00"
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         lbl.textColor = .darkGray
@@ -61,7 +61,7 @@ class OrderMealViewController: UIViewController {
     let quantLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "999"
+        lbl.text = "0"
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return lbl
@@ -110,21 +110,40 @@ class OrderMealViewController: UIViewController {
         return view
     }()
     
-    let orderView: UIView = {
+    let subtotalLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.textColor = .white
+        lbl.textAlignment = .right
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        lbl.text = "$0.00"
+        return lbl
+    }()
+    
+    lazy var orderView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 78/255, green: 176/255, blue: 76/255, alpha: 1)
         
-        let orderBtn = UIButton(type: .custom)
-        orderBtn.translatesAutoresizingMaskIntoConstraints = false
-        let titleAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium), NSAttributedString.Key.foregroundColor: UIColor.white]
-        orderBtn.setAttributedTitle(NSAttributedString(string: "ADD TO TRAY", attributes: titleAttribute), for: .normal)
-        orderBtn.backgroundColor = UIColor(red: 78/255, green: 176/255, blue: 76/255, alpha: 1)
+        let orderLbl = UILabel()
+        orderLbl.translatesAutoresizingMaskIntoConstraints = false
+        orderLbl.textColor = .white
+        orderLbl.textAlignment = .center
+        orderLbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        orderLbl.text = "ADD TO TRAY"
         
-        view.addSubview(orderBtn)
-        orderBtn.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        orderBtn.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        orderBtn.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        orderBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        view.addSubview(orderLbl)
+        view.addSubview(subtotalLbl)
+        
+        orderLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        orderLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        orderLbl.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        orderLbl.widthAnchor.constraint(equalToConstant: 144).isActive = true
+        
+        subtotalLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        subtotalLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        subtotalLbl.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        subtotalLbl.widthAnchor.constraint(equalToConstant: 80).isActive = true
 
         return view
     }()
@@ -177,12 +196,31 @@ class OrderMealViewController: UIViewController {
     @objc func addToQuantity() {
         let value = quantLbl.text!
         if value == "999" { return }
-        quantLbl.text = String(Int(value)! + 1)
+        let newQuant = Int(value)! + 1
+        quantLbl.text = String(newQuant)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        if let number = formatter.number(from: orderPriceLbl.text!) {
+            let amount = Double(truncating: number.decimalValue as NSNumber) * Double(newQuant)
+            subtotalLbl.text = String(format: "$%.02f", amount)
+        }
+        
     }
     
     @objc func decreaseFromQuantity() {
         let value = quantLbl.text!
-        if value == "0" { return }
-        quantLbl.text = String(Int(value)! - 1)
+        if value == "999" { return }
+        let newQuant = Int(value)! - 1
+        quantLbl.text = String(newQuant)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        if let number = formatter.number(from: orderPriceLbl.text!) {
+            let amount = Double(truncating: number.decimalValue as NSNumber) * Double(newQuant)
+            subtotalLbl.text = String(format: "$%.02f", amount)
+        }
     }
 }
