@@ -65,6 +65,8 @@ class SideMenuViewController: UITableViewController {
             revealViewController()?.pushFrontViewController(UINavigationController(rootViewController: SearchViewController()), animated: true)
         } else if indexPath.row == 1 {
             revealViewController()?.pushFrontViewController(UINavigationController(rootViewController: TrayViewController()), animated: true)
+        } else if indexPath.row == 2 {
+            revealViewController()?.pushFrontViewController(UINavigationController(rootViewController: OrderMapViewController()), animated: true)
         }
     }
     

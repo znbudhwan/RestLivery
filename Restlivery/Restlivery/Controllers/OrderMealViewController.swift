@@ -140,7 +140,7 @@ class OrderMealViewController: UIViewController {
         orderLbl.heightAnchor.constraint(equalToConstant: 60).isActive = true
         orderLbl.widthAnchor.constraint(equalToConstant: 144).isActive = true
         
-        subtotalLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        subtotalLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32).isActive = true
         subtotalLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         subtotalLbl.heightAnchor.constraint(equalToConstant: 60).isActive = true
         subtotalLbl.widthAnchor.constraint(equalToConstant: 80).isActive = true

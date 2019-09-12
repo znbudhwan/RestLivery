@@ -61,7 +61,7 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
     let orderTtlDvd: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(white: 0.9, alpha: 1)
         return view
     }()
     
@@ -87,7 +87,7 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
     let ttlAddrDvd: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(white: 0.9, alpha: 1)
         return view
     }()
     
@@ -150,6 +150,9 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 78/255, green: 176/255, blue: 76/255, alpha: 1)
+        view.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(showPaymentVC))
+        view.addGestureRecognizer(gesture)
         
         let orderLbl = UILabel()
         orderLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -285,5 +288,9 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
             orderTblView.isHidden = false
             placeholderView.isHidden = true
         }
+    }
+    
+    @objc func showPaymentVC() {
+        show(PaymentViewController(), sender: self)
     }
 }

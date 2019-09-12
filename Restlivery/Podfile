@@ -4,5 +4,6 @@ target 'Restlivery' do
   use_frameworks!
 
   pod 'lottie-ios'
+  pod 'Stripe'
 
 end
