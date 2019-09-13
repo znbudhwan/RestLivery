@@ -153,7 +153,7 @@ class OrderMealViewController: UIViewController {
         view.backgroundColor = .white
         
         let rightBarBtnItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_tray"), style: .plain, target: self, action: #selector(showTrayVC))
-        rightBarBtnItem.tintColor = view.tintColor
+        //rightBarBtnItem.tintColor = view.tintColor
         navigationItem.rightBarButtonItem = rightBarBtnItem
         rightBarBtnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -26)
 

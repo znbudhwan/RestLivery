@@ -8,26 +8,52 @@
 
 import UIKit
 
-class OrderInfoViewController: PullUpController {
+class OrderInfoViewController: PullUpController, UITableViewDelegate, UITableViewDataSource {
     
     enum InitialState {
         case contracted
         case expanded
     }
     
+    let orderId = "orderId"
+    
     var initialState: InitialState = .contracted
     
     lazy var firstPreviewView: UIView = {
         let fpView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
         fpView.translatesAutoresizingMaskIntoConstraints = false
-        fpView.backgroundColor = .green
+        fpView.backgroundColor = .white
         
         let dvdView = UIView()
         dvdView.translatesAutoresizingMaskIntoConstraints = false
         dvdView.backgroundColor = .darkGray
         dvdView.layer.cornerRadius = 2.5
         
+//        let driverImg = UIImageView()
+//        driverImg.translatesAutoresizingMaskIntoConstraints = false
+//        driverImg.image = #imageLiteral(resourceName: "placeholder")
+//        driverImg.layer.cornerRadius = 25
+//
+//        let driverLbl = UILabel()
+//        driverLbl.translatesAutoresizingMaskIntoConstraints = false
+//        driverLbl.text = "Driver's name"
+//        driverLbl.textColor = .darkGray
+//        driverLbl.textAlignment = .left
+//        driverLbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+//
+//        let driverStaticLbl = UILabel()
+//        driverStaticLbl.translatesAutoresizingMaskIntoConstraints = false
+//        driverStaticLbl.text = "Your driver"
+//        driverStaticLbl.textColor = .lightGray
+//        driverStaticLbl.textAlignment = .left
+//        driverStaticLbl.font = UIFont.systemFont(ofSize: 16, weight: .light)
+//
+//        let statusLbl = UILabel()
+//        statusLbl.translatesAutoresizingMaskIntoConstraints = false
+//        statusLbl
+        
         fpView.addSubview(dvdView)
+        
         dvdView.centerXAnchor.constraint(equalTo: fpView.centerXAnchor).isActive = true
         dvdView.heightAnchor.constraint(equalToConstant: 6).isActive = true
         dvdView.widthAnchor.constraint(equalToConstant: 60).isActive = true
@@ -36,10 +62,29 @@ class OrderInfoViewController: PullUpController {
         return fpView
     }()
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.register(TrayViewCell.self, forCellReuseIdentifier: orderId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.attach(to: self)
+        return tableView
+    }()
+    
     lazy var secondPreviewView: UIView = {
         let sPView = UIView(frame: CGRect(x: 0, y: firstPreviewView.frame.height, width: view.frame.width, height: 450))
         sPView.translatesAutoresizingMaskIntoConstraints = false
-        sPView.backgroundColor = .blue
+        sPView.backgroundColor = .white
+
+        sPView.addSubview(tableView)
+        tableView.leftAnchor.constraint(equalTo: sPView.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: sPView.rightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: sPView.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: sPView.bottomAnchor).isActive = true
+
         return sPView
     }()
     
@@ -124,5 +169,14 @@ class OrderInfoViewController: PullUpController {
                            animations: animations,
                            completion: completion)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: orderId, for: indexPath) as! TrayViewCell
+        return cell
     }
 }

@@ -188,7 +188,7 @@ class TrayViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         view.backgroundColor = .white
         let lftBarBtnItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_menu_24dp"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        lftBarBtnItem.tintColor = view.tintColor
+        //lftBarBtnItem.tintColor = view.tintColor
         navigationItem.leftBarButtonItem = lftBarBtnItem
 
         setupViews()

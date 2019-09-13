@@ -80,8 +80,8 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         let lftBarBtnItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_menu_24dp"), style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         let rightBarBtnItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_tray"), style: .plain, target: self, action: #selector(showTrayVC))
-        lftBarBtnItem.tintColor = view.tintColor
-        rightBarBtnItem.tintColor = view.tintColor
+        //lftBarBtnItem.tintColor = view.tintColor
+        //rightBarBtnItem.tintColor = view.tintColor
         rightBarBtnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -26)
         navigationItem.leftBarButtonItem = lftBarBtnItem
         navigationItem.rightBarButtonItem = rightBarBtnItem
